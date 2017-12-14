@@ -72,7 +72,7 @@ What does `xargs` do? Give an example of how to use it.
 >> `xargs` lets you build and execute statements by converting standard inputs into commands. It is especially helpful when
 combined with other commands, for example:
 
->> ```bash
+```bash
 find . -name "*.json" | xargs rm -rf
 ```
  >> The above command would find all files with a .json extension in your current directory and remove them
