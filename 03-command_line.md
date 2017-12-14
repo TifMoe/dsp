@@ -19,16 +19,16 @@ Here's a list of items with which you should be familiar:
 
 Make a cheat sheet for yourself: a list of at least **ten** commands and what they do.  (Use the 8 items above and add a couple of your own.)  
 
-* `pwd` - show current working directory path
-* `mkdir` - creating a directory
-* `rm -r` - deleting a directory
-* `touch filename` - creating a file
-* `rm` - deleting a file
-* `mv old_name new_name` - renaming a file
-* `ls -a` - listing hidden files
-* `cp filename directory` - copying file from one directory to another
-* `cd` - change directories
-* `..` shorthand for moving up one directory
+>> * `pwd` - show current working directory path
+>> * `mkdir` - creating a directory
+>> * `rm -r` - deleting a directory
+>> * `touch filename` - creating a file
+>> * `rm` - deleting a file
+>> * `mv old_name new_name` - renaming a file
+>> * `ls -a` - listing hidden files
+>> * `cp filename directory` - copying file from one directory to another
+>> * `cd` - change directories
+>> * `..` shorthand for moving up one directory
 
 ---
 
@@ -43,13 +43,13 @@ What do the following commands do:
 `ls -t`  
 `ls -Glp`  
 
-* `ls` - lists files in directory
-* `ls -a` - lists all files in directory (even hidden ones!)
-* `ls -l` - displays long format for files in directory
-* `ls -lh` - the same thing as `ls -l`
-* `ls -lah` - displayes long format for all files in directory (including hidden ones)
-* `ls -t` - orders files in directory by date created
-* `ls -Glp` - lists long format for files and subdirectories in directory, directories are highlighted and end with '/'
+>> * `ls` - lists files in directory
+>> * `ls -a` - lists all files in directory (even hidden ones!)
+>> * `ls -l` - displays long format for files in directory
+>> * `ls -lh` - the same thing as `ls -l`
+>> * `ls -lah` - displayes long format for all files in directory (including hidden ones)
+>> * `ls -t` - orders files in directory by date created
+>> * `ls -Glp` - lists long format for files and subdirectories in directory, directories are highlighted and end with '/'
 
 ---
 
@@ -57,11 +57,11 @@ What do the following commands do:
 
 Explore these other [ls options](http://www.techonthenet.com/unix/basic/ls.php) and pick 5 of your favorites:
 
-* `ls -1` - lists every item on own line
-* `ls -m` - list displayed as comma separated list
-* `ls -u` - list files by access time
-* `ls -R` - lists subdirectories as well
-* `ls -x` - displays items in directory as rows
+>> * `ls -1` - lists every item on own line
+>> * `ls -m` - list displayed as comma separated list
+>> * `ls -u` - list files by access time
+>> * `ls -R` - lists subdirectories as well
+>> * `ls -x` - displays items in directory as rows
 
 ---
 
@@ -69,12 +69,13 @@ Explore these other [ls options](http://www.techonthenet.com/unix/basic/ls.php) 
 
 What does `xargs` do? Give an example of how to use it.
 
-`xargs` lets you build and execute statements by converting standard inputs into commands. It is especially helpful when combined with other commands, for example:
+>> `xargs` lets you build and execute statements by converting standard inputs into commands. It is especially helpful when
+combined with other commands, for example:
 
-```bash
+>> ```bash
 find . -name "*.json" | xargs rm -rf
 ```
- The above command would find all files with a .json extension in your current directory and remove them
+ >> The above command would find all files with a .json extension in your current directory and remove them
 
  
 
