@@ -12,7 +12,7 @@ For quick and easy interactive practice with Python, many people enjoy [Codecade
 
 How are Python lists and tuples similar and different? Which will work as keys in dictionaries? Why?
 
->> While both lists and tuples contain an ordered sequence of values (such that the values can be idetified by the index) lists are mutable and can be altered while tuples are immutable. Because tuples cannot be altered, they will work as keys in a dictionary while lists do not. 
+>> Both lists and tuples contain an ordered sequence of values such that the values can be identified by the index. They also both allow for duplicated values in their sequence. However, lists are mutable and can be altered while tuples are immutable. Because tuples cannot be altered, they will work as keys in a dictionary while lists do not. 
 
 ---
 
@@ -20,7 +20,29 @@ How are Python lists and tuples similar and different? Which will work as keys i
 
 How are Python lists and sets similar and different? Give examples of using both. How does performance compare between lists and sets for finding an element. Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Both lists and sets contain a sequence of values however lists contain a mutable ordered sequence of values which can contain duplicate values whereas sets contain unordered immutable sequences of values that do not include duplication.
+
+#### List Examples
+
+>> For example, you can use a list to store the names of drinks Brittney purchased from Starbucks in October like:
+```python
+>>> list_oct_orders = ['pumpkin_spice_latte', 'pumpkin_spice_latte', 'pumpkin_spice_latte', 'coffee', 'pumpkin_spice_latte']
+>>> print(list_oct_orders)
+['pumpkin_spice_latte', 'pumpkin_spice_latte', 'pumpkin_spice_latte', 'coffee', 'pumpkin_spice_latte']
+```
+>> To find the first order in the above list, you can retreive the element at index 0
+```python
+>>> print(list_oct_orders[0])
+'pumpkin_spice_latte'
+```
+#### Set Examples
+>> But if you were only interested in the distinct types of drinks Brittney ordered in October, you could make a set of the above list like:
+```python
+>>> set_oct_orders = set(list_oct_orders)
+>>> print(set_oct_orders)
+set(['coffee', 'pumpkin_spice_latte'])
+```
+>> In the set above you can't retrieve Britteny's first order like we did in the list because it is an unordered sequence of unique values and doesn't support indexing. If you're only interested in finding drinks contained in either a list or set of Brittney's orders then searching elements in a set is slightly more performant. 
 
 ---
 
