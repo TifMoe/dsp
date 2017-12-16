@@ -27,6 +27,7 @@ How are Python lists and sets similar and different? Give examples of using both
 >> For example, you can use a list to store the names of drinks Brittney purchased from Starbucks in October like:
 ```python
 >>> list_oct_orders = ['pumpkin_spice_latte', 'pumpkin_spice_latte', 'pumpkin_spice_latte', 'coffee', 'pumpkin_spice_latte']
+
 >>> print(list_oct_orders)
 ['pumpkin_spice_latte', 'pumpkin_spice_latte', 'pumpkin_spice_latte', 'coffee', 'pumpkin_spice_latte']
 ```
@@ -39,6 +40,7 @@ How are Python lists and sets similar and different? Give examples of using both
 >> But if you were only interested in the distinct types of drinks Brittney ordered in October, you could make a set of the above list like:
 ```python
 >>> set_oct_orders = set(list_oct_orders)
+
 >>> print(set_oct_orders)
 set(['coffee', 'pumpkin_spice_latte'])
 ```
@@ -53,6 +55,7 @@ Describe Python's `lambda`. What is it, and what is it used for? Give at least o
 >> Python's `lambda` is an operator for building anonymous functions in a single line. This can be helpful when a simple/short function is needed once. For example, if you wanted to create a function to check if a list of drink orders contains a pumkin spice latte, you could use the following:
 ```python
 >>> ordered_psl = lambda x: 'Oh yay!' if 'pumpkin_spice_latte' in x else 'Nope...'
+
 >>> print(ordered_psl(list_oct_orders))
 Oh yay!
 ```
@@ -60,6 +63,7 @@ Oh yay!
 >> Say you had the following list of tuples with all your friend's favorite fall drinks and wanted to sort them
 ```python
 >>> friends_favs = [('Brit','pumpkin_spice_latte'), ('Correy','coffee'), ('Anne','green_tea')]
+
 >>> print(friends_favs)
 [('Brit','pumpkin_spice_latte'), ('Correy','coffee'), ('Anne','green_tea')]
 ```
@@ -79,7 +83,47 @@ Oh yay!
 
 Explain list comprehensions. Give examples and show equivalents with `map` and `filter`. How do their capabilities compare? Also demonstrate set comprehensions and dictionary comprehensions.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> List comprehensions let you create a new list by iterating over a sequence of values and perform some sort of transformation or computation on every element that meets the filter criteria.
+
+>> So since I'm already leaning hard into this Starbucks drinks motif, I'm just going to keep going with it :smirk: :coffee: We have our list of our friends favorite drinks above, but say we wanted to loop through all of them to see if they were seasonal drinks or not. We could first create a set with all the seasonal drinks we want to check against:
+```python
+>>> seasonal_drink_set = {'pumpkin_spice_latte', 'peppermint_latte', 'gingerbread_latte'}
+
+>>> print(friends_favs) # As a reminder of our list of friend's fav drinks
+[('Brit', 'pumpkin_spice_latte'), ('Correy', 'coffee'), ('Anne', 'green_tea')]
+```
+
+>> #### List Comprehensions
+>> We could then use a list comprehension to iterate over our list of friend favs to create a new list of the drinks that are not seasonal drinks:
+```python
+>>> non_seasonal_favs = [x[1] for x in friends_favs if x[1] not in seasonal_drinks]
+
+>>> print(non_seasonal_favs)
+['coffee', 'green_tea']
+```
+>> An equivalent operation using `map` and `filter` might be:
+```python
+>>> print(list(map(lambda x: x[1], filter(lambda y: y[1] not in seasonal_drinks, friends_favs))))
+['coffee', 'green_tea']
+```
+
+>> #### Set Comprehensions
+>> We can basically do the same computation above but store the output as a set instead of a list:
+```python
+>>> set_comprehension_example = {x[1] for x in friends_favs if x[1] not in seasonal_drinks}
+
+>>> print(set_comprehension_example)
+{'coffee', 'green_tea'}
+```
+
+>> #### Dictionary Comprehensions
+>> Similarly, we can create a dictionary using a dictionary comprehension if we wanted to store our friend's names with their non-seasonal fav drinks:
+```python
+>>> dict_comprehension_example = {x[0]:x[1] for x in friends_favs if x[1] not in seasonal_drinks}
+
+>>> print(dict_comprehension_example)
+{'Anne': 'green_tea', 'Correy': 'coffee'}
+```
 
 ---
 
