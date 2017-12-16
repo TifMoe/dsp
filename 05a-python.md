@@ -22,7 +22,7 @@ How are Python lists and sets similar and different? Give examples of using both
 
 >> Both lists and sets contain a sequence of values however lists contain a mutable ordered sequence of values which can contain duplicate values whereas sets contain unordered immutable sequences of values that do not include duplication.
 
-#### List Examples
+>> #### List Examples
 
 >> For example, you can use a list to store the names of drinks Brittney purchased from Starbucks in October like:
 ```python
@@ -35,7 +35,7 @@ How are Python lists and sets similar and different? Give examples of using both
 >>> print(list_oct_orders[0])
 'pumpkin_spice_latte'
 ```
-#### Set Examples
+>> #### Set Examples
 >> But if you were only interested in the distinct types of drinks Brittney ordered in October, you could make a set of the above list like:
 ```python
 >>> set_oct_orders = set(list_oct_orders)
@@ -50,8 +50,29 @@ set(['coffee', 'pumpkin_spice_latte'])
 
 Describe Python's `lambda`. What is it, and what is it used for? Give at least one example, including an example of using a `lambda` in the `key` argument to `sorted`.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Python's `lambda` is an operator for building anonymous functions in a single line. This can be helpful when a simple/short function is needed once. For example, if you wanted to create a function to check if a list of drink orders contains a pumkin spice latte, you could use the following:
+```python
+>>> ordered_psl = lambda x: 'Oh yay!' if 'pumpkin_spice_latte' in x else 'Nope...'
+>>> print(ordered_psl(list_oct_orders))
+Oh yay!
+```
 
+>> Say you had the following list of tuples with all your friend's favorite fall drinks and wanted to sort them
+```python
+>>> friends_favs = [('Brit','pumpkin_spice_latte'), ('Correy','coffee'), ('Anne','green_tea')]
+>>> print(friends_favs)
+[('Brit','pumpkin_spice_latte'), ('Correy','coffee'), ('Anne','green_tea')]
+```
+>> If you call the `sorted()` function on this list as is, you will find the tuples have been sorted by your friend's names (or, the 0 index in the tuple)
+```python
+>>> print(sorted(friends_favs))
+[('Anne', 'green_tea'), ('Brit', 'pumpkin_spice_latte'), ('Correy', 'coffee')]
+```
+>> But if you pass a lambda expression into the `key` argument of the `sorted` function, you can specify that you want to sort the list of tuples on the second element (the fav drinks!)
+```python
+>>> print(sorted(friends_favs, key=lambda x: x[1]))
+[('Correy', 'coffee'), ('Anne', 'green_tea'), ('Brit', 'pumpkin_spice_latte')]
+```
 ---
 
 ### Q4. List Comprehension, Map &amp; Filter
