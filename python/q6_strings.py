@@ -1,5 +1,6 @@
 # Based on materials copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
+import math
 
 
 def donuts(count):
@@ -18,7 +19,16 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
-    raise NotImplementedError
+    if isinstance(count, int):
+        if count < 10:
+            donut_count = count
+
+        else:
+            donut_count = 'many'
+
+        return 'Number of donuts: {}'.format(donut_count)
+
+    raise Warning('Please pass an integer value')
 
 
 def both_ends(s):
@@ -37,12 +47,21 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
-    raise NotImplementedError
+
+    if isinstance(s, str):
+        if len(s) < 2:
+            new_string = ''
+        else:
+            new_string = s[:2]+s[-2:]
+
+        return new_string
+
+    raise Warning('Please pass a string value')
 
 
 def fix_start(s):
     """
-    Given a string s, return a string where all occurences of its
+    Given a string s, return a string where all occurrences of its
     first char have been changed to '*', except do not change the
     first char itself. e.g. 'babble' yields 'ba**le' Assume that the
     string is length 1 or more.
@@ -56,7 +75,13 @@ def fix_start(s):
     >>> fix_start('donut')
     'donut'
     """
-    raise NotImplementedError
+    if isinstance(s, str) and len(s) > 0:
+        fixed_start = s[0]
+        fixed_others = ['*' if s[i] == fixed_start[0] else s[i] for i in range(1, len(s))]
+
+        return fixed_start + ''.join(fixed_others)
+
+    raise Warning('Please pass a string with at least one letter')
 
 
 def mix_up(a, b):
@@ -74,7 +99,14 @@ def mix_up(a, b):
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
     """
-    raise NotImplementedError
+
+    if isinstance(a, str) and isinstance(b, str) and len(a) + len(b) >= 4:
+        first_word = b[:2] + a[2:]
+        second_word = a[:2] + b[2:]
+
+        return '{} {}'.format(first_word, second_word)
+
+    raise Warning('Please pass two strings with at least 2 characters each')
 
 
 def verbing(s):
@@ -91,7 +123,19 @@ def verbing(s):
     >>> verbing('do')
     'do'
     """
-    raise NotImplementedError
+
+    if isinstance(s, str):
+        if len(s) < 3:
+            verb = s
+        else:
+            if s[-3:] == 'ing':
+                verb = s + 'ly'
+            else:
+                verb = s + 'ing'
+
+        return verb
+
+    raise Warning('Please pass a string')
 
 
 def not_bad(s):
@@ -111,7 +155,19 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
-    raise NotImplementedError
+
+    if isinstance(s, str):
+        not_s = s.find('not')
+        bad_s = s.find('bad')
+
+        if bad_s > not_s:
+            not_bad_substring = s.replace(s[not_s:bad_s+3], 'good')
+        else:
+            not_bad_substring = s
+
+        return not_bad_substring
+
+    raise Warning('Please pass a string value')
 
 
 def front_back(a, b):
@@ -130,4 +186,11 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
-    raise NotImplementedError
+
+    if isinstance(a, str) and isinstance(b, str):
+        a_sep = math.ceil(len(a)/2)
+        b_sep = math.ceil(len(b)/2)
+
+        return a[:a_sep] + b[:b_sep] + a[a_sep:] + b[b_sep:]
+
+    raise Warning('Please pass in string values for both arguments')
