@@ -44,7 +44,7 @@ print('Cohen Effect Size for diff in birth weight is {}'.format(CohenEffectSize(
 ```
 
 ```
-Cohen Effect Size for diff in birth weight is 0.028879044654449883
+Cohen Effect Size for diff in birth weight is -0.088672927072602
 ```
 
 >> While this effect size is small, it is slightly greater than Cohen's _d_ for the difference in pregnancy length between first babies and other babies which is only .029:
