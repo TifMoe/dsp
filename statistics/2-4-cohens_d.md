@@ -28,7 +28,7 @@ Average other baby weight is 7.325855614973262
 ```python
 import math
 
-# Define calculation to
+# Define calculation for Cohen Effect Size
 def CohenEffectSize(group1, group2):
     diff = group1.mean() - group2.mean()
 
@@ -47,7 +47,7 @@ print('Cohen Effect Size for diff in birth weight is {}'.format(CohenEffectSize(
 Cohen Effect Size for diff in birth weight is 0.028879044654449883
 ```
 
->> While this effect size is small, it is slightly greater than Cohen's _d_ for the difference in pregnancy length between first babies and other babies:
+>> While this effect size is small, it is slightly greater than Cohen's _d_ for the difference in pregnancy length between first babies and other babies which is only .029:
 ```python
 # Find Cohen's d for diff in preg lenght for first babies and other babies
 
