@@ -46,3 +46,13 @@ Biased Pmf:
 Pmf({0: 0.0, 1: 0.20899335717935616, 2: 0.38323965252938175, 3: 0.25523760858456823, 4: 0.10015329586101177, 5: 0.052376085845682166})
 The biased mean is 2.403679100664282
 ```
+
+>> We can plot both the biased and actual distribution of number of children with the code below:
+```python
+import thinkplot
+
+thinkplot.PrePlot(2)
+thinkplot.Pmfs([num_kid_pmf, biased_num_kids])
+thinkplot.Show(xlabel='number of children', ylabel='PMF')
+```
+
